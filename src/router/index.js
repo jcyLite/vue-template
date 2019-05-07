@@ -12,6 +12,14 @@ export function createRouter () {
       {
       	path:'/list',
       	component:()=>import('../page/list.vue')
+      },
+      {
+      	path:'/sign',
+      	component:()=>import('../page/sign.vue')
+      },
+      {
+      	path:'/form',
+      	component:()=>import('../page/form.vue')
       }
     ]
   })

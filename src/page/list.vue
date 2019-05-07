@@ -1,5 +1,5 @@
 <template>
-	<div class="hello">
+	<div class="list">
 		<tk-header>
 			list类组件及search组件
 			<!--<span @click="$router.push('/list-doc')" slot="right">文档</span>-->

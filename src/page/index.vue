@@ -1,9 +1,11 @@
 <template>
 	<div class="hello">
 		<div class="header">
-			前端组件大集合
+			前端组件集合
 		</div>
-		<tk-cell-one @click="$router.push('/list')" title="list类组件及search组件"></tk-cell-one>
+		<tk-cell-one @click="$router.push('/list')" title="list类组件及搜索组件"></tk-cell-one>
+		<tk-cell-one @click="$router.push('/sign')" title="sign签名组件"></tk-cell-one>
+		<tk-cell-one @click="$router.push('/form')" title="form表单组件"></tk-cell-one>
 	</div>
 </template>
 

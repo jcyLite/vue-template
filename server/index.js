@@ -5,28 +5,43 @@ var bodyParser     =         require("body-parser");
 const resolve=(p)=>path.resolve(__dirname,p)
 var app = express();
 	//设置跨域访问
-	app.all('*', function(req, res, next) {
-	   res.header("Access-Control-Allow-Origin", "*");
-	   res.header("Access-Control-Allow-Headers", "X-Requested-With");
-	   res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
-	   res.header("X-Powered-By",' 3.2.1');
-	// res.header("Content-Type", "application/json;charset=utf-8");
-	   next();
-	});
-	
-	//app.use(bodyParser.json({"limit":"50mb"}));
-	app.use(bodyParser.urlencoded({limit: '50mb', extended: true, parameterLimit:50000}));
-	app.use('/image',express.static(resolve('./image')))
-	
-	app.all('/:viewname?', function(req, res) {
-		if(req.params.viewname){
-			var result=JSON.parse(fs.readFileSync(resolve("./api/"+req.params.viewname+".json")))
-			res.status(200)
-			res.json(result)
-		}else{
-			res.json('无数据')
-		}
-	});
-	var server = app.listen(3334, function () {
-		console.log('listening at port 3334')
-	})
+app.all('*', function(req, res, next) {
+   res.header("Access-Control-Allow-Origin", "*");
+   res.header("Access-Control-Allow-Headers", "X-Requested-With");
+   res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+   res.header("X-Powered-By",' 3.2.1');
+// res.header("Content-Type", "application/json;charset=utf-8");
+   next();
+});
+function replaceB64(base64Data,i){
+	var a=base64Data.replace(/^data:image\/\w+;base64,/,'');
+	var type=base64Data.substring(base64Data.indexOf('/')+1,base64Data.indexOf(';'));
+	var dataBuffer=new Buffer(a,'base64');
+	var name = new Date().getTime();
+	var mpath='image/'+i+name+'.'+type;
+	fs.writeFile(resolve("./"+mpath),dataBuffer)
+	return {
+		type,dataBuffer,name,mpath
+	}
+}
+//app.use(bodyParser.json({"limit":"50mb"}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true, parameterLimit:50000}));
+app.use('/image',express.static(resolve('./image')))
+app.use('/sign',bodyParser.json({limit: '10mb'}),function(req, res){
+	var body=req.body;
+	var data=body.data;
+	replaceB64(data,'sign')
+	res.json('上传成功')
+})
+app.all('/:viewname?', function(req, res) {
+	if(req.params.viewname){
+		var result=JSON.parse(fs.readFileSync(resolve("./api/"+req.params.viewname+".json")))
+		res.status(200)
+		res.json(result)
+	}else{
+		res.json('无数据')
+	}
+});
+var server = app.listen(3334, function () {
+	console.log('listening at port 3334')
+})
