@@ -3,12 +3,11 @@ import App from './App.vue'
 import { createStore } from './store'
 import { createRouter } from './router'
 import { sync } from 'vuex-router-sync'
-import pot from '../public/pot_components'
-import thank from '../public/tk_components'
-Vue.use(pot);
-Vue.use(thank);
+import vConsole from 'vconsole';
+var vconsole=new vConsole();
+
 function install_cordova(){
-	if(window.navigator.platform!='Win32'){
+//	if(window.navigator.platform!='Win32'){
 		var isAndroid=/Android/.test(navigator.userAgent);
 		var isIos =/iPhone/.test(navigator.userAgent);
 		Vue.prototype.isAndroid=isAndroid;
@@ -22,10 +21,9 @@ function install_cordova(){
 		}else if(isAndroid){
 			script.src="./static/cordova/cordova-android/cordova.js";
 		}
-		script.src="./static/cordova/cordova-android/cordova.js";
 		body.appendChild(script);
 		
-	}
+//	}
 }
 export function createApp () {
   // create store and router instances
@@ -42,10 +40,13 @@ export function createApp () {
     router,
     store,
     mounted(){
-    	setTimeout(()=>{
-				
-				install_cordova()
-			},200)
+    	import('../public/pot_components').then(d=>{
+			Vue.use(d.default)
+		})
+		import('../public/tk_components').then(d=>{
+			Vue.use(d.default)
+		})
+		install_cordova()
     },
     render: h => h(App)
   })

@@ -10,6 +10,10 @@ export function createRouter () {
     routes: [
       { path: '', component: ()=>import('../page/index.vue')},
       {
+      	path:'/test',
+      	component:()=>import('../test.vue')
+      },
+      {
       	path:'/list',
       	component:()=>import('../page/list.vue')
       },
@@ -20,6 +24,30 @@ export function createRouter () {
       {
       	path:'/form',
       	component:()=>import('../page/form.vue')
+      },
+      {
+      	path:'/switch',
+      	component:()=>import('../page/switch.vue')
+      },
+      {
+      	path:'/menu',
+      	component:()=>import('../page/menu.vue')
+      },
+      {
+      	path:'/poper',
+      	component:()=>import('../page/poper.vue')
+      },
+      {
+      	path:'/image',
+      	component:()=>import('../page/image.vue')
+      },
+      {
+      	path:'/upload',
+      	component:()=>import('../page/upload.vue')
+      },
+      {
+      	path:'/carousel',
+      	component:()=>import('../page/carousel.vue')
       }
     ]
   })

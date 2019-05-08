@@ -1,21 +1,37 @@
 <template>
 	<div class="hello">
 		<div class="header">
-			前端组件集合
+			前端组件
+			<span @click="$router.push('/test')" class="right">test</span>
 		</div>
-		<tk-cell-one @click="$router.push('/list')" title="list类组件及搜索组件"></tk-cell-one>
-		<tk-cell-one @click="$router.push('/sign')" title="sign签名组件"></tk-cell-one>
-		<tk-cell-one @click="$router.push('/form')" title="form表单组件"></tk-cell-one>
+		<div class="cell" @click="$router.push('/list')">
+			list类组件及search搜索组件
+		</div>
+		<div class="cell" @click="$router.push('/sign')">
+			sign签名组件
+		</div>
+		<div class="cell" @click="$router.push('/form')" >
+			form表单组件
+		</div>
+		<div class="cell" @click="$router.push('/menu')">
+			menu菜单栏组件
+		</div>
+		<div class="cell" @click="$router.push('/poper')">
+			poper弹出层组件
+		</div>
+		<div class="cell" @click="$router.push('/image')">
+			image图片组件 (自带图片放大显示功能)
+		</div>
+		<div class="cell" @click="$router.push('/upload')">
+			upload上传资源组件
+		</div>
+		<div class="cell" @click="$router.push('/carousel')">
+			carousel轮播组件
+		</div>
 	</div>
 </template>
 
 <script>
-	export default {
-		data(){
-			return {
-			}
-		}
-	}
 </script>
 
 <style lang="less">
@@ -25,8 +41,19 @@
 		height:50px;
 		line-height:50px;
 		color:#fff;
+		.right{
+			float:right;
+			margin-right:20px;
+		}
 	}
-	.tk-cell-one{
+	.cell{
+		background:#fff;
 		margin-top:5px;
+		height:50px;
+		color:#000;
+		line-height:50px;
+		padding-left:13px;
+		border-top:1px solid #ddd;
+		border-bottom:1px solid #ddd;
 	}
 </style>
