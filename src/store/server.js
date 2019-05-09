@@ -3,8 +3,8 @@ import Vue from 'vue'
 import VueAxios from 'vue-axios'
 import Qs from 'qs';
 Vue.use(VueAxios,axios);
-var obj=require('../webpack.config.json');
-axios.defaults.baseURL=obj.proxy;
+var options=require('../webpack.config.json');
+Vue.prototype.baseURL=axios.defaults.baseURL=options.proxy;
 axios.defaults.timeout=12000;
 axios.defaults.headers={ //设置相应头
 	'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',

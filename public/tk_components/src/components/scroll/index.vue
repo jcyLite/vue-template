@@ -13,6 +13,10 @@
 	.no-more{
 		height:100px;
 	}
+	.pot-scroll-list-wrapper{
+		box-sizing: border-box;
+		padding-bottom:100px;
+	}
 </style>
 <template>
 	<pot-scroll class="tk-scroll" ref="scroll" @pulling-up="pullUp" @pulling-down="pullDown" :options="{
@@ -83,6 +87,7 @@
 //	        }
 		},
 		mounted(){
+			window.ss=this;
 			this.$refs.scroll.scrollTo(0,this.$route.query.scrollY||0)
 			this.param&&this.url&&this.ajax();
 		},
@@ -91,19 +96,18 @@
 				var param=this.param||{};
 				param.page=this.page;
 				this.$http.post(this.url,param).then(d=>{
-					if(this.page==1){
-						this.data=d;
-					}else{
-						if(d.length==0){
-							this.canpullUp=false;
+						if(this.page==1){
+							this.data=d;
 						}else{
-							this.data=this.data.concat(d)
+							if(d.length==0){
+								this.canpullUp=false;
+							}else{
+								this.data=this.data.concat(d)
+							}
 						}
-					}
-					//将此函数放入队列，等dom更新后回调，防止提前重新计算高度不准
-					this.$nextTick(()=>{
-						this.$refs.scroll&&this.$refs.scroll.forceUpdate(true);
-					})
+						this.$nextTick(()=>{
+							this.$refs.scroll&&this.$refs.scroll.forceUpdate(true);
+						})
 				})
 			},
 			pullUp(){

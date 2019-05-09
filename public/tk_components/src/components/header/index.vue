@@ -1,5 +1,7 @@
 <style lang="less">
 	.tk-header {
+		position: fixed;
+		top:0;
 		z-index:10;
 		height:50px;
 		line-height:50px;

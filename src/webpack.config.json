@@ -7,8 +7,5 @@
 	"port":8080,
 	"static":true,
 	"compress":false,
-	"proxy":{
-		"api":["/tuceng"],
-		"target":"http://192.168.3.29:3334/"
-	}
+	"proxy":"http://localhost:3334/"
 }

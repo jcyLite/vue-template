@@ -3,17 +3,21 @@
 		<tk-header>
 			chat聊天组件
 		</tk-header>
-		<tk-scroll>
-			<tk-chat-bubble :data="item" :key=index v-for="item,index of d">
+		<div class="container" style="left:0;right:0;overflow:scroll;position:fixed;top:50px;bottom:120px;">
+			<div style="padding-bottom:100px;">
+				<tk-chat-bubble :data="item" :key=index v-for="item,index of d">
 				
-			</tk-chat-bubble>
-			<div class="foot">
-				<div class="input">
-					<input style="padding-left:20px;" v-model="msg" type="text" id="name" value="">
-				</div>
-				<tk-button style="margin-top:10px;" @click="send">发送</tk-button>
+				</tk-chat-bubble>
 			</div>
-		</tk-scroll>
+			
+			
+		</div>
+		<div class="foot">
+			<div class="input">
+				<input style="padding-left:20px;" v-model="msg" type="text" id="name" value="">
+			</div>
+			<tk-button style="margin-top:10px;" @click="send">发送</tk-button>
+		</div>
 	</div>
 </template>
 
@@ -22,7 +26,7 @@
 		data(){
 			return {
 				ws:null,
-				uid:new Date().getTime().toString(),
+				uid:'',
 				msg:'',
 				d:[]
 			}
@@ -34,21 +38,33 @@
 					type:'message',
 					msg:this.msg
 				}));
-				this.d.push({
+				var obj={
 					uid:this.uid,
 					type:'message',
 					msg:this.msg,
 					isMe:true
-				})
+				}
+				this.d.push(obj)
 				this.msg='';
 			},
 			transformData(obj){
 				return JSON.stringify(obj)
 			}
 		},
+		beforeDestroy(){
+			console.log(this.d)
+			localStorage.setItem('d',JSON.stringify(this.d));
+		},
 		mounted(){
 			window.chat=this;
-			this.ws=new WebSocket('ws://192.168.3.29:3334');
+			var a=localStorage.getItem('d');
+			if(a){
+				this.d=JSON.parse(a)
+			}
+			var uid=localStorage.getItem('uid')||new Date().getTime();
+			this.uid=uid;
+			var baseURL=this.baseURL.replace('http','ws')
+			this.ws=new WebSocket(baseURL);
 			var that=this;
 			this.ws.onopen = function(e) {
 				var obj={
@@ -64,7 +80,7 @@
 				console.log(type);
 				switch(type){
 					case 'message':
-						that.d.push(options)
+						that.d.push(options);
 						break;
 				}
 			}
@@ -101,4 +117,7 @@
 			text-align: center;
 		}
 	}
+	.container::-webkit-scrollbar {
+     display: none;
+  }
 </style>

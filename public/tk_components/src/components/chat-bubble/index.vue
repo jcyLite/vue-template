@@ -1,5 +1,8 @@
 <style lang="less">
 	.chat-bubble{
+		&::last-child{
+			margin-bottom: 100px;
+		}
 		margin-top:30px;
 		overflow: hidden;
 		&.isMe{
@@ -20,13 +23,16 @@
 			border-radius:50%;
 		}
 		.msg{
+			overflow: hidden;
+			word-wrap:break-word;
 			float:left;
 			width:calc( 100% - 80px );
 			background:#04be02;
 			color:#fff;
 			border-radius:5px;
-			height:70px;
 			padding:13px;
+			min-height: 70px;
+			line-height:20px;
 		}
 	}
 </style>
