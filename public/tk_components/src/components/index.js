@@ -44,6 +44,7 @@ import detailPhoto from './detail-photo'
 import playVideo from './play-video'
 import nodata from './nodata'
 import cellOne from './Cell/cell-one.vue'
+import chatBubble from './chat-bubble'
 //style Module
 import './Style/Style.less';
 function useCreateAPI(options){
@@ -64,6 +65,7 @@ const ThankComponents={
   	Vue.createAPI(playVideo,['data'],true)
   	Vue.component('tk-detail',Detail)
   	Vue.component('tk-header',header)
+  	Vue.component('tk-chat-bubble',chatBubble)
   	Vue.component('tk-popup',popup)
   	Vue.component('tk-form',Form)
   	Vue.component('tk-menu',menu)

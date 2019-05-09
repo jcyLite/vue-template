@@ -3,6 +3,12 @@ import App from './App.vue'
 import { createStore } from './store'
 import { createRouter } from './router'
 import vConsole from 'vconsole';
+
+import pot from '../public/pot_components';
+import thank from '../public/tk_components';
+Vue.use(pot);
+Vue.use(thank)
+
 var vconsole = new vConsole();
 
 function install_cordova() {
@@ -30,12 +36,12 @@ const app = new Vue({
 	router,
 	store,
 	mounted() {
-		import('../public/pot_components').then(d => {
-			Vue.use(d.default)
-		})
-		import('../public/tk_components').then(d => {
-			Vue.use(d.default)
-		})
+//		import('../public/pot_components').then(d => {
+//			Vue.use(d.default)
+//		})
+//		import('../public/tk_components').then(d => {
+//			Vue.use(d.default)
+//		})
 		install_cordova()
 	},
 	render: h => h(App)
