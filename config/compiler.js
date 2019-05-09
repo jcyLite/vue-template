@@ -1,8 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const MiniCssExtractPlugin=require('mini-css-extract-plugin');
 const webpack = require('webpack');
-const loaders = require('./loaders');
+const rules = require('./loaders');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const isDev = process.env.NODE_ENV === 'development';
 const PostCompilePlugin = require('webpack-post-compile-plugin')
@@ -14,10 +15,13 @@ function dist(odist) {
 	}
 }
 module.exports = function(src,odist) {
+	var conf = require('../' + src + '/webpack.config.json');
+	conf.src = src;
 	return {
 		target: 'web',
+		mode: 'development',
 		entry: {
-			index: ['./src/index.js']
+			index: ['./' + src + '/index.js']
 		}, //入口JS
 		output: {
 			filename: "./js/[name].js",
@@ -35,7 +39,7 @@ module.exports = function(src,odist) {
 		},
 		module: {
 			noParse: /es6-promise\.js$/,
-			rules: loaders
+			rules: rules(conf)
 		},
 		plugins: [
 			new PostCompilePlugin(),
@@ -56,6 +60,10 @@ module.exports = function(src,odist) {
 				'process.env.NODE_ENV':JSON.stringify(process.env.NODE_ENV)
 			}),
 			new VueLoaderPlugin(),
+			new MiniCssExtractPlugin({
+				filename:"css/[name].css",
+				chunkFilename:"css/[id].css"
+			}),
 			new CleanWebpackPlugin(['dist', 'build'], {
 				verbose: false
 			})

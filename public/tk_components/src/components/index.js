@@ -3,6 +3,7 @@ import CreateAPI from 'vue-create-api'
 //vue Module
 import detailTextarea from './detail-textarea'
 import buttonGroup from './button/group.vue'
+import container from './container'
 import header from './header'
 import Button from './button';
 import sign from './sign';
@@ -42,7 +43,6 @@ import detailVideo from './detail-video'
 import detailPhoto from './detail-photo'
 import playVideo from './play-video'
 import nodata from './nodata'
-import table from './table'
 import cellOne from './Cell/cell-one.vue'
 //style Module
 import './Style/Style.less';
@@ -67,7 +67,6 @@ const ThankComponents={
   	Vue.component('tk-popup',popup)
   	Vue.component('tk-form',Form)
   	Vue.component('tk-menu',menu)
-  	Vue.component('tk-table',table)
   	Vue.component('tk-switch',Switch)
 	Vue.component('tk-button',Button)
 	Vue.component('tk-detail-textarea',detailTextarea)
@@ -79,6 +78,7 @@ const ThankComponents={
   	Vue.component('tk-cell-three',cellThree)
   	Vue.component('tk-search',search)
   	Vue.component('tk-sign',sign)
+  	Vue.component('tk-container',container)
   	Vue.component('tk-cell-with-image',CellWithImage)
   	Vue.component('tk-content',content)
   	Vue.component('tk-select-time',selectTime)

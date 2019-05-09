@@ -2,7 +2,6 @@
 	.search{
 		display: flex;
 		.input{
-			
 			flex:1;
 			border:1px solid #ddd;
 			color:#bbb;
@@ -20,8 +19,6 @@
 				
 			}
 			input{
-				outline:none;
-				box-shadow:none;
 				font-size:13px;
 				height:100%;
 				width:80%;
@@ -129,7 +126,7 @@
 						v-if="!searchVal&&!isFocus" 
 						direction="horizontal">
 						<ul class="tk-local">
-								<li @click.stop="searchVal=item" v-for="item,index of local" class="tk-local-item">
+								<li @click="searchVal=item" v-for="item,index of local" class="tk-local-item">
 									<span class="tk-local-text">
 										{{item}}
 									</span>

@@ -3,7 +3,6 @@
 		z-index:10;
 		height:50px;
 		line-height:50px;
-		top:0;
 		width:100%;
 		text-align:center;
 		background:#278ADD;

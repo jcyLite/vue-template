@@ -22,12 +22,15 @@
 		<div class="cell" @click="$router.push('/image')">
 			image图片组件 (自带图片放大显示功能)
 		</div>
-		<div class="cell" @click="$router.push('/upload')">
+		<div class="cell" @click="$router.push('/chat')">
+			chat聊天组件
+		</div>
+		<!--<div class="cell" @click="$router.push('/upload')">
 			upload上传资源组件
-		</div>
-		<div class="cell" @click="$router.push('/carousel')">
+		</div>-->
+		<!--<div class="cell" @click="$router.push('/carousel')">
 			carousel轮播组件
-		</div>
+		</div>-->
 	</div>
 </template>
 

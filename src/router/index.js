@@ -42,6 +42,10 @@ export function createRouter () {
       	component:()=>import('../page/image.vue')
       },
       {
+      	path:'/chat',
+      	component:()=>import('../page/chat.vue')
+      },
+      {
       	path:'/upload',
       	component:()=>import('../page/upload.vue')
       },

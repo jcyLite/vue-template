@@ -151,7 +151,6 @@
 			},
 			camera(){
 				this.mycamera((imageData)=>{
-					console.log(12);
 					if(this.withBase64){
 						this.tkValue.push("data:image/jpeg;base64,"+imageData)
 					}else{
@@ -161,14 +160,12 @@
 			},
 			mycamera(successCallback){
 				function errorCallback(message){
-					alert(2)
+					
 				}
-				
 				navigator.camera.getPicture(successCallback,errorCallback,{
 					quality: 50,
 					destinationType:Camera.DestinationType.DATA_URL
 				});
-				alert(1);
 			},
 			choosePic(successCallback){
 				function errorCallback(message){

@@ -15,10 +15,10 @@ export default function playAudio(src,id,isOnline){
         var name =src.substring(src.lastIndexOf('/')+1);
         var localSrc = hndsDirectoryPath + '/' + name;
         hndsDirectory.getFile(name, {create:false, exclusive:false}, function(fileEntry){
-            // 存在文件
+            // 存在文件 
             _playAudio(src)
         }, function(){
-            // 不存在文件
+            // 不存在文件 
             var uri = encodeURI(src)
             var fileTransfer = new FileTransfer()
             fileTransfer.download(
@@ -39,10 +39,6 @@ export default function playAudio(src,id,isOnline){
     }
 }
 function _playAudio(src){
-    // 本地资源的src （不作处理） 
-    if(_playAudio.prevAudio){
-    	_playAudio.prevAudio.stop();
-    }
     var audioPlayObj=new Media(src);
     if (device.platform == "Android") {
         audioPlayObj.play()
@@ -52,5 +48,4 @@ function _playAudio(src){
             audioSrcHandleWhenScreenIsLocked: false // 锁屏时是否播放
         })
     }
-    _playAudio.prevAudio=audioPlayObj;
 }

@@ -79,7 +79,7 @@ class developBase {
 		if (this.conf.static) {
 			this.app.use(
 				'/static',
-				express.static(path.resolve(__dirname, '../static'))
+				express.static(path.resolve(__dirname, '../' + src + '/static'))
 			)
 		}
 	}

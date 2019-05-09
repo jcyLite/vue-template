@@ -13,16 +13,6 @@
 	.no-more{
 		height:100px;
 	}
-	.tk-scroll{
-		position:fixed;
-		top:50px;
-		left:0;
-		right:0;
-		bottom:0;
-		.pot-scroll-list-wrapper{
-			padding-bottom:100px;
-		}
-	}
 </style>
 <template>
 	<pot-scroll class="tk-scroll" ref="scroll" @pulling-up="pullUp" @pulling-down="pullDown" :options="{

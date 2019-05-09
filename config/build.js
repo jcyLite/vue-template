@@ -1,3 +1,5 @@
+process.env.NODE_ENV='production';
+const conf=require('../src/webpack.config.json');
 const compiler=require('./compiler.js');
 const path=require('path');
 const webpack=require('webpack');
@@ -29,8 +31,10 @@ function buildPack(webpackConfig,callback) {
   })
 }
 buildPack(webpackConfig,function(){
+  if(conf.static){
     var from=path.resolve(__dirname,'../src/static')
     var output_path=webpackConfig.output.path;
     var to=output_path+'/static';
     jcyFs.copyDir(from,to)
+  }
 })

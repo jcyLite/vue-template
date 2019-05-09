@@ -121,6 +121,7 @@
 				playAudio(src);
 			},
 			del(index){
+				this.audioVal.splice(index,1);
 				this.nativeVal.splice(index,1);
 			},
 			pressToSay(e,i){

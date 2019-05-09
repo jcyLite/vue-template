@@ -1,9 +1,30 @@
 const express=require('express');
 const fs=require('fs')
 const path=require('path');
-var bodyParser     =         require("body-parser"); 
+const http=require('http');
+const bodyParser =  require("body-parser"); 
+var WebSocketServer = require('ws').Server;
 const resolve=(p)=>path.resolve(__dirname,p)
 var app = express();
+const server = http.createServer(app);
+var wss = new WebSocketServer({
+	server
+});
+wss.broadcast = function broadcast(info) { 
+	this.clients.forEach(function each(client) {
+		console.log(info)
+		client.send(info)
+	})
+}
+wss.on('connection', function(ws,abc) {
+	ws.on('message', function(jsonStr,flags) {
+		wss.broadcast(jsonStr)
+		
+	})
+	ws.on('close',function(){
+		
+	})
+})
 	//设置跨域访问
 app.all('*', function(req, res, next) {
    res.header("Access-Control-Allow-Origin", "*");
@@ -42,6 +63,6 @@ app.all('/:viewname?', function(req, res) {
 		res.json('无数据')
 	}
 });
-var server = app.listen(3334, function () {
+server.listen(3334, function () {
 	console.log('listening at port 3334')
 })

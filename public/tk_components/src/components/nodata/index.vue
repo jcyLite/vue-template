@@ -7,7 +7,7 @@
 <script>
 </script>
 
-<style lang="less">
+<style>
 	.tk-nodata{
 		background-image:url('./nodata.png');
 		height:100px;

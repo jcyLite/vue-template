@@ -1,9 +1,20 @@
 <style lang="less">
 	.tk-sign{
+		position:relative;
+		.tk-sign-del{
+			right:12px;
+			top:12px;
+			width:20px;
+			height:20px;
+			position:absolute;
+			background-size:contain;
+			background-repeat: no-repeat;
+		}
 	}
 </style>
 <template>
 	<div class="tk-sign" ref="sign">
+		<div v-show="signValue" @click="del" :style="{'background-image':`url(${require('./close.svg')})`}" class="tk-sign-del"></div>
 		<canvas 
 			@touchend="touchend" 
 			@touchstart="touchstart" 
@@ -53,6 +64,10 @@
 			}
 		},
 		methods:{
+			del(){
+				this.ctx.clearRect(0,0,this.width,this.height)
+				this.signValue='';
+			},
 			touchstart(e){
 				this.ctx=this.$refs.signCanvas.getContext('2d');
 				this.ctx.lineWidth=5;
@@ -66,7 +81,6 @@
 				this.moveX=e.changedTouches[0].clientX-this.canvasPosition.offsetLeft;
 				this.moveY=e.changedTouches[0].clientY-this.canvasPosition.offsetTop;
 				this.ctx.lineTo(this.moveX,this.moveY);
-				
 				this.ctx.stroke();
 			},
 			touchend(){
