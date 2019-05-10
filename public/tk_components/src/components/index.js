@@ -3,18 +3,16 @@ import CreateAPI from 'vue-create-api'
 //vue Module
 import detailTextarea from './detail-textarea'
 import buttonGroup from './button/group.vue'
-import container from './container'
 import header from './header'
 import Button from './button';
 import sign from './sign';
-import content from './content'
 import Form from './Form/Form.vue';
 import menu from './menu';
 import popup from './popup/popup.vue'
 import Detail from './detail'
 import addMinus from './add-minus'
 import Textarea from './textarea'
-import Cellfour from './Cell/Cell_Four.vue';
+import Cellfour from './cell/Cell_Four.vue';
 import cellThree from './Cell/Cell_three.vue';
 import Switch from './Switch/Switch.vue';
 import PopShoppingCar from './pop-shopping-car'
@@ -32,7 +30,6 @@ import imageCell from './image/cell.vue'
 //add to vue.prototype
 import Bottom from './Poper/Bottom';
 import Tip from './Poper/Tip';
-import Voice from './Cordova_Plugin/Voice';
 import popMiddle from './pop-middle'
 import title from './title'
 import uploadAudio from './upload-audio'
@@ -45,8 +42,7 @@ import playVideo from './play-video'
 import nodata from './nodata'
 import cellOne from './Cell/cell-one.vue'
 import chatBubble from './chat-bubble'
-//style Module
-import './Style/Style.less';
+
 function useCreateAPI(options){
 	
 }
@@ -80,9 +76,7 @@ const ThankComponents={
   	Vue.component('tk-cell-three',cellThree)
   	Vue.component('tk-search',search)
   	Vue.component('tk-sign',sign)
-  	Vue.component('tk-container',container)
   	Vue.component('tk-cell-with-image',CellWithImage)
-  	Vue.component('tk-content',content)
   	Vue.component('tk-select-time',selectTime)
   	Vue.component('tk-pop-right',popRight)
   	Vue.component('tk-filter',filter);

@@ -21,5 +21,8 @@
 		#app{
 			padding-top:50px;
 		}
+		.container{
+			padding:13px;
+		}
 	}
 </style>

@@ -25,7 +25,7 @@ module.exports = function(src,odist) {
 		}, //入口JS
 		output: {
 			filename: "./js/[name].js",
-			path: path.resolve(__dirname, '../fxwz')
+			path: path.resolve(__dirname, '../dist')
 		},
 		resolve: {
 			alias: {

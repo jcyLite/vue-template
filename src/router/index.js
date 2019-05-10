@@ -50,8 +50,8 @@ export function createRouter () {
       	component:()=>import('../page/upload.vue')
       },
       {
-      	path:'/carousel',
-      	component:()=>import('../page/carousel.vue')
+      	path:'/slide',
+      	component:()=>import('../page/slide.vue')
       },
       {
       	path:'/other',
