@@ -14,6 +14,7 @@
 		}" url="tuceng">
 			<tk-search v-model="searchTxt"></tk-search>
 			<tk-cell-four
+				:key=index
 				:data="{
 					'title':item.a,
 					'status':item.b,

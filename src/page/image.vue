@@ -15,11 +15,11 @@
 		data(){
 			return {
 				list:[{
-					src:require('../image/ch01.png')
+					src:require('../image/ch01.jpg')
 				},{
-					src:require('../image/ch02.png')
+					src:require('../image/ch02.jpg')
 				},{
-					src:require('../image/ch03.png')
+					src:require('../image/ch03.jpg')
 				}]
 			}
 		}

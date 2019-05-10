@@ -4,16 +4,14 @@ import { createStore } from './store'
 import { createRouter } from './router'
 import vConsole from 'vconsole';
 
-import pot from '../public/pot_components';
 import thank from '../public/tk_components';
-Vue.use(pot);
 Vue.use(thank)
 
 var vconsole = new vConsole();
 
 function install_cordova() {
-	//	if(window.navigator.platform!='Win32'){
-	var isAndroid=/Android/.test(navigator.userAgent);
+	if(window.navigator.platform!='Win32'){
+		var isAndroid=/Android/.test(navigator.userAgent);
 		var isIos =/iPhone/.test(navigator.userAgent);
 		Vue.prototype.isAndroid=isAndroid;
 		Vue.prototype.isIos=isIos;
@@ -28,7 +26,7 @@ function install_cordova() {
 		}
 		body.appendChild(script);
 
-	//	}
+	}
 }
 const store = createStore()
 const router = createRouter()

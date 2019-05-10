@@ -27,6 +27,7 @@ import filter from './filter'
 import fiterItem from './filter/item.vue'
 import Image from './image'
 import imageCell from './image/cell.vue'
+import slide from './slide'
 //add to vue.prototype
 import Bottom from './Poper/Bottom';
 import Tip from './Poper/Tip';
@@ -63,6 +64,7 @@ const ThankComponents={
   	Vue.component('tk-header',header)
   	Vue.component('tk-chat-bubble',chatBubble)
   	Vue.component('tk-popup',popup)
+  	Vue.component('tk-slide',slide)
   	Vue.component('tk-form',Form)
   	Vue.component('tk-menu',menu)
   	Vue.component('tk-switch',Switch)

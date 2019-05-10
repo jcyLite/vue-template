@@ -7,9 +7,9 @@
 			<tk-button @click="alert" style="margin-top:10px;">
 				警告框组件
 			</tk-button>
-			<tk-button @click="confirm" style="margin-top:10px;">
+			<!--<tk-button @click="confirm" style="margin-top:10px;">
 				确认组件
-			</tk-button>
+			</tk-button>-->
 			<tk-button @click="popRight" style="margin-top:10px;">
 				右弹出组件
 			</tk-button>

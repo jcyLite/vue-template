@@ -25,6 +25,7 @@ class developBase {
 		spinner.start();
 		this.conf = require('../' + src + '/webpack.config.json') || {};
 		this.app = express();
+		this.app.use('/favicon.ico',express.static(path.resolve(__dirname,'./source/favicon.ico')))
 		this.merge(src);
 		this.entryConcat();
 		this.compiler = webpack(this.base);

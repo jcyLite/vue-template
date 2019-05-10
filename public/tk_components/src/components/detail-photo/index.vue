@@ -7,16 +7,17 @@
 			border-radius:4px;
 			float:left;
 			justify-content: flex-start;
-			width:calc( 100vw/4 - 20px);
-			height:calc( 100vw/4 - 20px);
+			width:calc( 100vw/3 - 30px);
+			height:calc( 100vw/3 - 30px );
 			background:@default_bg_color;
-			margin:20px;
+			margin:10px;
 			.tk-detail-photo-item-box{
 				width:100%;
 				height:100%;
 				background-repeat: no-repeat;
 				background-size:cover;
 				border-radius:5px;
+				background-position:center center;
 			}
 		}
 	}
