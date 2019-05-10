@@ -18,5 +18,8 @@
 			font-size:14px;
 			text-align: left;
 		}
+		#app{
+			padding-top:50px;
+		}
 	}
 </style>

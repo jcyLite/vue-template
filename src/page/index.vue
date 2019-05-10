@@ -25,6 +25,9 @@
 		<div class="cell" @click="$router.push('/chat')">
 			chat聊天组件
 		</div>
+		<div class="cell" @click="$router.push('/other')">
+			其他组件
+		</div>
 		<!--<div class="cell" @click="$router.push('/upload')">
 			upload上传资源组件
 		</div>-->
@@ -39,6 +42,9 @@
 
 <style lang="less">
 	.header{
+		position: fixed;
+		top:0;
+		width:100%;
 		background:#000;
 		text-align:center;
 		height:50px;

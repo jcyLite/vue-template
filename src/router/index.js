@@ -52,6 +52,10 @@ export function createRouter () {
       {
       	path:'/carousel',
       	component:()=>import('../page/carousel.vue')
+      },
+      {
+      	path:'/other',
+      	component:()=>import('../page/other.vue')
       }
     ]
   })

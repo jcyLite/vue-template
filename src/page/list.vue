@@ -56,10 +56,6 @@
 		color:#fff;
 	}
 	.tk-scroll{
-		position:fixed;
-		top:50px;
-		bottom:0;
-		left:0;
-		right:0;
+		height:calc(100vh - 50px);
 	}
 </style>

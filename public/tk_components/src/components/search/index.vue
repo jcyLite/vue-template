@@ -19,6 +19,7 @@
 				
 			}
 			input{
+				outline: none;
 				font-size:13px;
 				height:100%;
 				width:80%;
