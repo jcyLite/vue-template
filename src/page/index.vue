@@ -31,9 +31,9 @@
 		<div class="cell" @click="$router.push('/other')">
 			其他组件
 		</div>
-		<!--<div class="cell" @click="$router.push('/upload')">
+		<div class="cell" @click="$router.push('/upload')">
 			upload上传资源组件
-		</div>-->
+		</div>
 		
 	</div>
 </template>

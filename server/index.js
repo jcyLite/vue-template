@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 var WebSocketServer = require('ws').Server;
 const resolve = (p) => path.resolve(__dirname, p)
 var app = express();
+app.use('/static',express.static(resolve('./static')))
 const server = http.createServer(app);
 var wss = new WebSocketServer({
 	server
