@@ -109,10 +109,6 @@
 				}
 				return {offsetTop,offsetLeft}
 			}
-		},
-		mounted(){
-			console.log(this.$refs.sign.clientHeight)
-			
 		}
 	}
 </script>
